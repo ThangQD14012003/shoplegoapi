@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "V3MIftPgf82qYucsveCWwRVWT2BIEEyoZ57egM3cxWg=",
+  "Source": "ShopLegoApi",
+  "BasePath": "_content/ShopLegoApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
