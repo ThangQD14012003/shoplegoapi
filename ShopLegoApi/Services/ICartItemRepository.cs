@@ -11,7 +11,7 @@ namespace ShopLegoApi.Services
 
         Task UpdateQuantity(int cartItemId);
 
-        Task DeleteCartItem(int cartItemId);
+        Task<int> DeleteCartItem(int cartItemId);
 
         Task ClearCart(int customerId);
     }

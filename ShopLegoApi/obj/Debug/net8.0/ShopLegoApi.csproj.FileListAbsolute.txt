@@ -149,3 +149,4 @@ C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\ShopLegoApi\bin\Debug
 C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\ShopLegoApi\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\ShopLegoApi\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\ShopLegoApi\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\ShopLegoApi\obj\Debug\net8.0\ShopLegoApi.sourcelink.json

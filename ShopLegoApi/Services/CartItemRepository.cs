@@ -42,14 +42,16 @@ namespace ShopLegoApi.Services
             throw new NotImplementedException();
         }
 
-        public async Task DeleteCartItem(int cartItemId)
+        public async Task<int> DeleteCartItem(int cartItemId)
         {
             var cartItem = _context.CartItems.FirstOrDefault(o => o.Id == cartItemId);
             if (cartItem != null)
             {
                 _context.CartItems.Remove(cartItem);
                 await _context.SaveChangesAsync();
+                return cartItem.Id;
             }
+            else return -1; 
 
         }
 

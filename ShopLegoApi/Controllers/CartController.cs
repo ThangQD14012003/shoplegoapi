@@ -32,8 +32,8 @@ namespace ShopLegoApi.Controllers
         [HttpDelete("{cartItemId}")]
         public async Task<IActionResult> DeleteCartItem(int cartItemId)
         {
-            await _cartRepo.DeleteCartItem(cartItemId);
-            return Ok(new { message = "Deleted cart item" });
+            
+            return Ok(await _cartRepo.DeleteCartItem(cartItemId));
         }
 
         [HttpDelete("clear/{customerId}")]

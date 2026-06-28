@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShopLegoApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c5a90a97cbc4ca8a2a6e8129c054ace5eb0fb3f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShopLegoApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShopLegoApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
