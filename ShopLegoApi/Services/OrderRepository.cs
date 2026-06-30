@@ -52,13 +52,13 @@ namespace ShopLegoApi.Services
             return order == null ? null : MapToDto(order);
         }
 
-        public async Task<int> PlaceOrder(int userId, string shippingAddress)
+        public async Task<int> PlaceOrderV1(int userId, string shippingAddress)
         {
             // Lấy giỏ hàng của user
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
                     .ThenInclude(ci => ci.Product)
-                .FirstOrDefaultAsync(c => c.UserId == userId);
+                .FirstOrDefaultAsync(c => c.UserId == userId); // lấy ra cả dữ liệu của CartItems và dữ liệu của Product 
 
             if (cart == null || !cart.CartItems.Any())
                 throw new InvalidOperationException("Giỏ hàng trống hoặc không tồn tại.");
@@ -72,7 +72,7 @@ namespace ShopLegoApi.Services
             }
 
             // Tính tổng tiền
-            var totalAmount = cart.CartItems.Sum(ci => ci.Quantity * ci.Product.Price);
+            var totalAmount = cart.CartItems.Sum(ci => ci.Quantity * ci.Product.Price); // giá trị của lấy được dữ liệu của Product 
 
             // Tạo đơn hàng
             var order = new Order
@@ -115,54 +115,197 @@ namespace ShopLegoApi.Services
             return order.Id;
         }
 
+
+        public async Task<int> PlaceOrder(int userId, string shippingAddress)
+        {
+            await using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
+            {
+                // Lấy giỏ hàng
+                var cart = await _context.Carts
+                    .Include(c => c.CartItems)
+                        .ThenInclude(ci => ci.Product)
+                    .FirstOrDefaultAsync(c => c.UserId == userId);
+
+                if (cart == null || !cart.CartItems.Any())
+                    throw new InvalidOperationException("Giỏ hàng trống hoặc không tồn tại.");
+
+                // Tính tổng tiền
+                decimal totalAmount = cart.CartItems.Sum(ci => ci.Quantity * ci.Product.Price);
+
+                // Tạo Order
+                var order = new Order
+                {
+                    UserId = userId,
+                    OrderStatusId = 1,
+                    OrderDate = DateTime.UtcNow,
+                    TotalAmount = totalAmount,
+                    ShippingAddress = shippingAddress
+                };
+
+                await _context.Orders.AddAsync(order);
+                await _context.SaveChangesAsync();
+
+                // Tạo OrderDetail + Atomic Update tồn kho
+                foreach (var item in cart.CartItems)
+                {
+                    var affectedRows = await _context.Database.ExecuteSqlInterpolatedAsync($@"
+                UPDATE Products
+                SET AvailableQuantity = AvailableQuantity - {item.Quantity}
+                WHERE Id = {item.ProductId}
+                AND AvailableQuantity >= {item.Quantity}");
+
+                    if (affectedRows == 0)
+                    {
+                        throw new InvalidOperationException(
+                            $"Sản phẩm '{item.Product.Name}' không đủ hàng.");
+                    }
+
+                    var detail = new OrderDetail
+                    {
+                        OrderId = order.Id,
+                        ProductId = item.ProductId,
+                        Quantity = item.Quantity,
+                        UnitPrice = item.Product.Price
+                    };
+
+                    await _context.OrderDetails.AddAsync(detail);
+                }
+
+                // Xóa giỏ hàng
+                _context.CartItems.RemoveRange(cart.CartItems);
+
+                await _context.SaveChangesAsync();
+
+                await transaction.CommitAsync();
+
+                // Gửi email sau khi Commit thành công
+                await _emailService.SendOrderConfirmationAsync(order.Id);
+
+                return order.Id;
+            }
+            catch
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
+        }
+
+        //public async Task<int> BuyNow(int userId, int productId, int quantity, string shippingAddress)
+        //{
+        //    // Lấy thông tin sản phẩm
+        //    var product = await _context.Products.FindAsync(productId);
+        //    if (product == null)
+        //        throw new InvalidOperationException("Sản phẩm không tồn tại.");
+
+        //    if (product.AvailableQuantity < quantity)
+        //        throw new InvalidOperationException(
+        //            $"Sản phẩm '{product.Name}' không đủ hàng. Còn lại: {product.AvailableQuantity}");
+
+        //    // Tính tổng tiền
+        //    var totalAmount = product.Price * quantity;
+
+        //    // Tạo đơn hàng
+        //    var order = new Order
+        //    {
+        //        UserId = userId,
+        //        OrderStatusId = 1, // 1 = Pending
+        //        OrderDate = DateTime.UtcNow,
+        //        TotalAmount = totalAmount,
+        //        ShippingAddress = shippingAddress
+        //    };
+
+        //    await _context.Orders.AddAsync(order);
+        //    await _context.SaveChangesAsync();
+
+        //    // Tạo OrderDetail
+        //    var detail = new OrderDetail
+        //    {
+        //        OrderId = order.Id,
+        //        ProductId = productId,
+        //        Quantity = quantity,
+        //        UnitPrice = product.Price
+        //    };
+        //    await _context.OrderDetails.AddAsync(detail);
+
+        //    // Giảm tồn kho khả dụng
+        //    product.AvailableQuantity -= quantity;
+        //    _context.Products.Update(product);
+
+        //    await _context.SaveChangesAsync();
+
+        //    // Gửi email xác nhận
+        //    await _emailService.SendOrderConfirmationAsync(order.Id);
+
+        //    return order.Id;
+        //}
+
         public async Task<int> BuyNow(int userId, int productId, int quantity, string shippingAddress)
         {
-            // Lấy thông tin sản phẩm
-            var product = await _context.Products.FindAsync(productId);
-            if (product == null)
-                throw new InvalidOperationException("Sản phẩm không tồn tại.");
+            await using var transaction = await _context.Database.BeginTransactionAsync();
 
-            if (product.AvailableQuantity < quantity)
-                throw new InvalidOperationException(
-                    $"Sản phẩm '{product.Name}' không đủ hàng. Còn lại: {product.AvailableQuantity}");
-
-            // Tính tổng tiền
-            var totalAmount = product.Price * quantity;
-
-            // Tạo đơn hàng
-            var order = new Order
+            try
             {
-                UserId = userId,
-                OrderStatusId = 1, // 1 = Pending
-                OrderDate = DateTime.UtcNow,
-                TotalAmount = totalAmount,
-                ShippingAddress = shippingAddress
-            };
+                var product = await _context.Products.FindAsync(productId);
 
-            await _context.Orders.AddAsync(order);
-            await _context.SaveChangesAsync();
+                if (product == null)
+                    throw new InvalidOperationException("Sản phẩm không tồn tại.");
 
-            // Tạo OrderDetail
-            var detail = new OrderDetail
+                // Atomic Update
+                var affectedRows = await _context.Database.ExecuteSqlInterpolatedAsync($@"
+            UPDATE Products
+            SET AvailableQuantity = AvailableQuantity - {quantity}
+            WHERE Id = {productId}
+            AND AvailableQuantity >= {quantity}");
+
+                if (affectedRows == 0)
+                {
+                    throw new InvalidOperationException(
+                        $"Sản phẩm '{product.Name}' không đủ hàng.");
+                }
+
+                decimal totalAmount = product.Price * quantity;
+
+                var order = new Order
+                {
+                    UserId = userId,
+                    OrderStatusId = 1,
+                    OrderDate = DateTime.UtcNow,
+                    TotalAmount = totalAmount,
+                    ShippingAddress = shippingAddress
+                };
+
+                await _context.Orders.AddAsync(order);
+                await _context.SaveChangesAsync();
+
+                var detail = new OrderDetail
+                {
+                    OrderId = order.Id,
+                    ProductId = productId,
+                    Quantity = quantity,
+                    UnitPrice = product.Price
+                };
+
+                await _context.OrderDetails.AddAsync(detail);
+
+                await _context.SaveChangesAsync();
+
+                await transaction.CommitAsync();
+
+                // Gửi email sau khi Commit
+                await _emailService.SendOrderConfirmationAsync(order.Id);
+
+                return order.Id;
+            }
+            catch
             {
-                OrderId = order.Id,
-                ProductId = productId,
-                Quantity = quantity,
-                UnitPrice = product.Price
-            };
-            await _context.OrderDetails.AddAsync(detail);
-
-            // Giảm tồn kho khả dụng
-            product.AvailableQuantity -= quantity;
-            _context.Products.Update(product);
-
-            await _context.SaveChangesAsync();
-
-            // Gửi email xác nhận
-            await _emailService.SendOrderConfirmationAsync(order.Id);
-
-            return order.Id;
+                await transaction.RollbackAsync();
+                throw;
+            }
         }
+
+
 
         public async Task UpdateStatus(int orderId, int orderStatusId)
         {

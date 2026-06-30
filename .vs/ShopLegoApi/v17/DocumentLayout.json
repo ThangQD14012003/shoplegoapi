@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|c:\\users\\quangthang\\onedrive\\documents\\tecapro\\shoplegoapi\\shoplegoapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|c:\\users\\quangthang\\onedrive\\documents\\tecapro\\shoplegoapi\\shoplegoapi\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,12 +15,32 @@
       "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\services\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|c:\\users\\quangthang\\onedrive\\documents\\tecapro\\shoplegoapi\\shoplegoapi\\services\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\services\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|c:\\users\\quangthang\\onedrive\\documents\\tecapro\\shoplegoapi\\shoplegoapi\\datas\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\datas\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|c:\\users\\quangthang\\onedrive\\documents\\tecapro\\shoplegoapi\\shoplegoapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|c:\\users\\quangthang\\onedrive\\documents\\tecapro\\shoplegoapi\\shoplegoapi\\services\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\services\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|c:\\users\\quangthang\\onedrive\\documents\\tecapro\\shoplegoapi\\shoplegoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|c:\\users\\quangthang\\onedrive\\documents\\tecapro\\shoplegoapi\\shoplegoapi\\services\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\services\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|c:\\users\\quangthang\\onedrive\\documents\\tecapro\\shoplegoapi\\shoplegoapi\\services\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\services\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|c:\\users\\quangthang\\onedrive\\documents\\tecapro\\shoplegoapi\\shoplegoapi\\services\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\services\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|c:\\users\\quangthang\\onedrive\\documents\\tecapro\\shoplegoapi\\shoplegoapi\\services\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,10 +63,6 @@
       "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|c:\\users\\quangthang\\onedrive\\documents\\tecapro\\shoplegoapi\\shoplegoapi\\datas\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\datas\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|c:\\users\\quangthang\\onedrive\\documents\\tecapro\\shoplegoapi\\shoplegoapi\\services\\icartitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\services\\icartitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -61,10 +81,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|c:\\users\\quangthang\\onedrive\\documents\\tecapro\\shoplegoapi\\shoplegoapi\\model\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\model\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|c:\\users\\quangthang\\onedrive\\documents\\tecapro\\shoplegoapi\\shoplegoapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91382E28-66F1-4D73-924B-4D644C097D0B}|ShopLegoApi\\ShopLegoApi.csproj|solutionrelative:shoplegoapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -74,7 +90,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 25,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -122,7 +138,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\appsettings.json",
+              "RelativeDocumentMoniker": "ShopLegoApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\appsettings.json",
+              "RelativeToolTip": "ShopLegoApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-06-30T18:45:19.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "ShopLegoApi\\Services\\ProductRepository.cs",
+              "ToolTip": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\ProductRepository.cs",
+              "RelativeToolTip": "ShopLegoApi\\Services\\ProductRepository.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwBEAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T17:10:42.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Program.cs",
+              "RelativeDocumentMoniker": "ShopLegoApi\\Program.cs",
+              "ToolTip": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Program.cs",
+              "RelativeToolTip": "ShopLegoApi\\Program.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAMwF8AAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T16:39:09.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\UserRepository.cs",
+              "RelativeDocumentMoniker": "ShopLegoApi\\Services\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\UserRepository.cs",
+              "RelativeToolTip": "ShopLegoApi\\Services\\UserRepository.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAMwBwAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T14:11:56.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\IUserRepository.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Services\\IUserRepository.cs",
@@ -130,25 +198,24 @@
               "RelativeToolTip": "ShopLegoApi\\Services\\IUserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T13:42:33.111Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T13:42:33.111Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "IProductRepository.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\IProductRepository.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Services\\IProductRepository.cs",
               "ToolTip": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\IProductRepository.cs",
               "RelativeToolTip": "ShopLegoApi\\Services\\IProductRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-30T13:42:32.59Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
               "Title": "IJwtService.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\IJwtService.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Services\\IJwtService.cs",
@@ -156,12 +223,11 @@
               "RelativeToolTip": "ShopLegoApi\\Services\\IJwtService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T13:38:51.882Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T13:38:51.882Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 3,
               "Title": "Order.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Datas\\Order.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Datas\\Order.cs",
@@ -174,20 +240,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "OrderRepository.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\OrderRepository.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Services\\OrderRepository.cs",
               "ToolTip": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\OrderRepository.cs",
               "RelativeToolTip": "ShopLegoApi\\Services\\OrderRepository.cs",
-              "ViewState": "AgIAAGsAAAAAAAAAAAAwwHgAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAIwEoAAACEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-30T09:00:05.178Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 19,
               "Title": "UserModel.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Model\\UserModel.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Model\\UserModel.cs",
@@ -199,7 +265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "IEmailService.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\IEmailService.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Services\\IEmailService.cs",
@@ -207,12 +273,11 @@
               "RelativeToolTip": "ShopLegoApi\\Services\\IEmailService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T09:28:05.374Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T09:28:05.374Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "IOrderRepository.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\IOrderRepository.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Services\\IOrderRepository.cs",
@@ -220,12 +285,11 @@
               "RelativeToolTip": "ShopLegoApi\\Services\\IOrderRepository.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAwBUAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T09:27:58.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T09:27:58.728Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "ICartItemRepository.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\ICartItemRepository.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Services\\ICartItemRepository.cs",
@@ -233,12 +297,11 @@
               "RelativeToolTip": "ShopLegoApi\\Services\\ICartItemRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T09:27:57.471Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T09:27:57.471Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 14,
               "Title": "OrderController.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Controllers\\OrderController.cs",
@@ -246,12 +309,11 @@
               "RelativeToolTip": "ShopLegoApi\\Controllers\\OrderController.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAQwD0AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T09:27:49.242Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T09:27:49.242Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "CartController.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Controllers\\CartController.cs",
@@ -263,19 +325,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 4,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Controllers\\AdminController.cs",
               "ToolTip": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Controllers\\AdminController.cs",
               "RelativeToolTip": "ShopLegoApi\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAqwDUAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T09:13:21.226Z"
+              "WhenOpened": "2026-06-30T09:13:21.226Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Controllers\\ProductController.cs",
@@ -287,7 +350,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "CartItemRepository.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\CartItemRepository.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Services\\CartItemRepository.cs",
@@ -295,25 +358,24 @@
               "RelativeToolTip": "ShopLegoApi\\Services\\CartItemRepository.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAwBsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T08:57:38.932Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T08:57:38.932Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "EmailService.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\EmailService.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Services\\EmailService.cs",
               "ToolTip": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Services\\EmailService.cs",
               "RelativeToolTip": "ShopLegoApi\\Services\\EmailService.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAIA/wBkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAANUAAAAAAAAAAAAWwBkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-30T08:56:22.047Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "ShopLegoApi\\Controllers\\UserController.cs",

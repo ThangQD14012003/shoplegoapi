@@ -149,15 +149,13 @@ namespace ShopLegoApi.Controllers
             return Ok(new { message = "Settings updated successfully" });
         }
     }
-
-    /// <summary>Request body cho endpoint cập nhật cấu hình email</summary>
+    
     public class UpdateSettingsRequest
     {
         public string ManagerEmail { get; set; } = string.Empty;
         public string AccountantEmail { get; set; } = string.Empty;
     }
 
-    /// <summary>Request body cho endpoint cập nhật trạng thái đơn hàng</summary>
     public class UpdateOrderStatusRequest
     {
         public int OrderStatusId { get; set; }

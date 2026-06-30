@@ -1,12 +1,20 @@
 {
   "Version": 1,
-  "Hash": "V3MIftPgf82qYucsveCWwRVWT2BIEEyoZ57egM3cxWg=",
+  "Hash": "k7kxW0VT+VamrNPxX9QF3ADLAAk5bNvuca/ocdlIOCY=",
   "Source": "ShopLegoApi",
   "BasePath": "_content/ShopLegoApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ShopLegoApi\\wwwroot",
+      "Source": "ShopLegoApi",
+      "ContentRoot": "C:\\Users\\QuangThang\\OneDrive\\Documents\\TECAPRO\\ShopLegoApi\\ShopLegoApi\\wwwroot\\",
+      "BasePath": "_content/ShopLegoApi",
+      "Pattern": "**"
+    }
+  ],
   "Assets": [],
   "Endpoints": []
 }
