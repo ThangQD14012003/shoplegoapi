@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShopLegoApi.Model;
 using ShopLegoApi.Services;
@@ -9,10 +10,12 @@ namespace ShopLegoApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepo;
+        private readonly IJwtService _jwtService;
 
-        public UserController(IUserRepository userRepository)
+        public UserController(IUserRepository userRepository, IJwtService jwtService)
         {
             _userRepo = userRepository;
+            _jwtService = jwtService; 
         }
 
         [HttpPost("register")]
@@ -35,14 +38,15 @@ namespace ShopLegoApi.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var success = await _userRepo.Login(model.Email, model.Password);
-            if (!success)
+            var user = await _userRepo.Login(model.Email, model.Password);
+            if (user == null)
                 return BadRequest(new { message = "Invalid email or password" });
 
-            var user = await _userRepo.GetByEmail(model.Email);
+            var token = _jwtService.GenerateToken(user);
             return Ok(new
             {
                 message = "Login successful",
+                token,      
                 user = new
                 {
                     id = user?.Id,

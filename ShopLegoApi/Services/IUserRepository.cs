@@ -8,6 +8,6 @@ namespace ShopLegoApi.Services
         Task<User?> GetById(int id);
         Task<User?> GetByEmail(string email);
         Task<int> Register(UserModel model);
-        Task<bool> Login(string email, string password);
+        Task<UserModel?> Login(string email, string password);
     }
 }

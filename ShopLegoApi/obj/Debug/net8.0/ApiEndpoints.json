@@ -259,6 +259,22 @@
   },
   {
     "ContainingType": "ShopLegoApi.Controllers.OrderController",
+    "Method": "BuyNow",
+    "RelativePath": "api/Order/buy-now",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ShopLegoApi.Controllers.BuyNowRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShopLegoApi.Controllers.OrderController",
     "Method": "GetById",
     "RelativePath": "api/Order/detail/{orderId}",
     "HttpMethod": "GET",

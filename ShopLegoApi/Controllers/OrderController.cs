@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShopLegoApi.Services;
 
 namespace ShopLegoApi.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class OrderController : ControllerBase
     {
@@ -45,11 +47,39 @@ namespace ShopLegoApi.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+        [HttpPost("buy-now")]
+        public async Task<IActionResult> BuyNow([FromBody] BuyNowRequest request)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            try
+            {
+                var orderId = await _orderRepo.BuyNow(
+                    request.UserId,
+                    request.ProductId,
+                    request.Quantity,
+                    request.ShippingAddress);
+                return Ok(new { message = "Mua hàng thành công", orderId = orderId });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 
     public class PlaceOrderRequest
     {
         public int UserId { get; set; }
+        public string ShippingAddress { get; set; } = string.Empty;
+    }
+
+    public class BuyNowRequest
+    {
+        public int UserId { get; set; }
+        public int ProductId { get; set; }
+        public int Quantity { get; set; } = 1;
         public string ShippingAddress { get; set; } = string.Empty;
     }
 }

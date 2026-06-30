@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShopLegoApi.Datas;
@@ -6,11 +7,9 @@ using ShopLegoApi.Services;
 
 namespace ShopLegoApi.Controllers
 {
-    /// <summary>
-    /// AdminController – Chỉ Admin mới có quyền gọi các endpoint này.
-    /// (JWT/Role authorization sẽ bổ sung sau)
-    /// </summary>
+    
     [Route("api/[controller]")]
+    [Authorize(Roles = "Admin")]
     [ApiController]
     public class AdminController : ControllerBase
     {

@@ -150,4 +150,6 @@ C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\ShopLegoApi\bin\Debug
 C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\ShopLegoApi\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\ShopLegoApi\obj\Debug\net8.0\ShopLegoApi.sourcelink.json
 C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\ShopLegoApi\bin\Debug\net8.0\BCrypt-Net-Next.dll
+C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\ShopLegoApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\ShopLegoApi\bin\Debug\net8.0\Microsoft.Bcl.Cryptography.dll
 C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\ShopLegoApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

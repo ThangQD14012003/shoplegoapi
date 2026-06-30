@@ -41,12 +41,35 @@ namespace ShopLegoApi.Services
             return user.Id;
         }
 
-        public async Task<bool> Login(string email, string password)
-        {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
-            if (user == null) return false;
+        //public async Task<bool> Login(string email, string password)
+        //{
+        //    var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+        //    if (user == null) return false;
 
-            return BCrypt.Net.BCrypt.Verify(password, user.PasswordHash);
+        //    return BCrypt.Net.BCrypt.Verify(password, user.PasswordHash);
+        //}
+
+        public async Task<UserModel?> Login(string email, string password)
+        {
+            var user = _context.Users.FirstOrDefault(o=> o.Email == email);
+
+            if(user == null)
+            {
+                return null; 
+            }
+            if (!BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
+                return null;
+            var userModel = new UserModel
+            {
+                Email = user.Email,
+                Address = user.Address,
+                FullName = user.FullName,
+                Id = user.Id,
+                Role = user.Role,
+            }; 
+            return userModel; 
         }
+
+
     }
 }

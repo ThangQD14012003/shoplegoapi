@@ -115,6 +115,55 @@ namespace ShopLegoApi.Services
             return order.Id;
         }
 
+        public async Task<int> BuyNow(int userId, int productId, int quantity, string shippingAddress)
+        {
+            // Lấy thông tin sản phẩm
+            var product = await _context.Products.FindAsync(productId);
+            if (product == null)
+                throw new InvalidOperationException("Sản phẩm không tồn tại.");
+
+            if (product.AvailableQuantity < quantity)
+                throw new InvalidOperationException(
+                    $"Sản phẩm '{product.Name}' không đủ hàng. Còn lại: {product.AvailableQuantity}");
+
+            // Tính tổng tiền
+            var totalAmount = product.Price * quantity;
+
+            // Tạo đơn hàng
+            var order = new Order
+            {
+                UserId = userId,
+                OrderStatusId = 1, // 1 = Pending
+                OrderDate = DateTime.UtcNow,
+                TotalAmount = totalAmount,
+                ShippingAddress = shippingAddress
+            };
+
+            await _context.Orders.AddAsync(order);
+            await _context.SaveChangesAsync();
+
+            // Tạo OrderDetail
+            var detail = new OrderDetail
+            {
+                OrderId = order.Id,
+                ProductId = productId,
+                Quantity = quantity,
+                UnitPrice = product.Price
+            };
+            await _context.OrderDetails.AddAsync(detail);
+
+            // Giảm tồn kho khả dụng
+            product.AvailableQuantity -= quantity;
+            _context.Products.Update(product);
+
+            await _context.SaveChangesAsync();
+
+            // Gửi email xác nhận
+            await _emailService.SendOrderConfirmationAsync(order.Id);
+
+            return order.Id;
+        }
+
         public async Task UpdateStatus(int orderId, int orderStatusId)
         {
             var order = await _context.Orders
