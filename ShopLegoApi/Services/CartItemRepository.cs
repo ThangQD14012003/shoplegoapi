@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using ShopLegoApi.Datas;
 using ShopLegoApi.DTO;
 
@@ -12,10 +12,25 @@ namespace ShopLegoApi.Services
         {
             _context = context;
         }
-        public async Task AddToCart(int customerId, int productId)
+
+        public async Task AddToCart(int userId, int productId)
         {
+            var cart = await _context.Carts
+                .FirstOrDefaultAsync(c => c.UserId == userId);
+
+            if (cart == null)
+            {
+                cart = new Cart
+                {
+                    UserId = userId,
+                    CreatedAt = DateTime.UtcNow
+                };
+                await _context.Carts.AddAsync(cart);
+                await _context.SaveChangesAsync();
+            }
+
             var cartItem = await _context.CartItems
-                .FirstOrDefaultAsync(x => x.CustomerId == customerId
+                .FirstOrDefaultAsync(x => x.CartId == cart.Id
                                        && x.ProductId == productId);
 
             if (cartItem != null)
@@ -24,11 +39,13 @@ namespace ShopLegoApi.Services
             }
             else
             {
+                var product = await _context.Products.FindAsync(productId);
                 cartItem = new CartItem
                 {
-                    CustomerId = customerId,
+                    CartId = cart.Id,
                     ProductId = productId,
-                    Quantity = 1
+                    Quantity = 1,
+                    UnitPrice = product?.Price ?? 0
                 };
 
                 await _context.CartItems.AddAsync(cartItem);
@@ -37,28 +54,35 @@ namespace ShopLegoApi.Services
             await _context.SaveChangesAsync();
         }
 
-        public Task ClearCart(int customerId)
+        public async Task ClearCart(int userId)
         {
-            throw new NotImplementedException();
+            var cartItems = await _context.CartItems
+                .Where(x => x.Cart.UserId == userId)
+                .ToListAsync();
+
+            if (cartItems.Any())
+            {
+                _context.CartItems.RemoveRange(cartItems);
+                await _context.SaveChangesAsync();
+            }
         }
 
         public async Task<int> DeleteCartItem(int cartItemId)
         {
-            var cartItem = _context.CartItems.FirstOrDefault(o => o.Id == cartItemId);
+            var cartItem = await _context.CartItems.FindAsync(cartItemId);
             if (cartItem != null)
             {
                 _context.CartItems.Remove(cartItem);
                 await _context.SaveChangesAsync();
                 return cartItem.Id;
             }
-            else return -1; 
-
+            return -1;
         }
 
-        public async Task<List<CartItemDto>> GetCartByCustomerId(int customerId)
+        public async Task<List<CartItemDto>> GetCartByUserId(int userId)
         {
             return await _context.CartItems
-                .Where(x => x.CustomerId == customerId)
+                .Where(x => x.Cart.UserId == userId)
                 .Select(x => new CartItemDto
                 {
                     Id = x.Id,
@@ -66,14 +90,20 @@ namespace ShopLegoApi.Services
                     Quantity = x.Quantity,
                     ProductName = x.Product.Name,
                     Price = x.Product.Price,
-                    Image = x.Product.Image
+                    Image = x.Product.ImageUrl
                 })
                 .ToListAsync();
         }
 
-        public Task UpdateQuantity(int cartItemId)
+        public async Task UpdateQuantity(int cartItemId, int quantity)
         {
-            throw new NotImplementedException();
+            var cartItem = await _context.CartItems.FindAsync(cartItemId);
+            if (cartItem != null)
+            {
+                cartItem.Quantity = quantity;
+                _context.CartItems.Update(cartItem);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

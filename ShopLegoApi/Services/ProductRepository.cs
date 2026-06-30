@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using ShopLegoApi.Datas;
 using ShopLegoApi.Model;
@@ -19,10 +19,15 @@ namespace ShopLegoApi.Services
         {
             var product = new Product
             {
+                CategoryId = model.CategoryId,
                 Name = model.Name,
+                Description = model.Description,
                 Price = model.Price,
-                Description = "",
-                Image = ""
+                StockQuantity = model.StockQuantity,
+                AvailableQuantity = model.AvailableQuantity,
+                ImageUrl = model.ImageUrl,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
             };
 
             _context.Products.Add(product);
@@ -59,8 +64,14 @@ namespace ShopLegoApi.Services
             if (product == null)
                 return;
 
+            product.CategoryId = model.CategoryId;
             product.Name = model.Name;
+            product.Description = model.Description;
             product.Price = model.Price;
+            product.StockQuantity = model.StockQuantity;
+            product.AvailableQuantity = model.AvailableQuantity;
+            product.ImageUrl = model.ImageUrl;
+            product.UpdatedAt = DateTime.UtcNow;
 
             _context.Products.Update(product);
             await _context.SaveChangesAsync();

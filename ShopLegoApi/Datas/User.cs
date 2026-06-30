@@ -2,7 +2,7 @@
 
 namespace ShopLegoApi.Datas
 {
-    public class Customer
+    public class User
     {
         [Key]
         public int Id { get; set; }
@@ -11,16 +11,17 @@ namespace ShopLegoApi.Datas
 
         public string Email { get; set; } = string.Empty;
 
-        public string Password { get; set; } = string.Empty;
+        public string PasswordHash { get; set; } = string.Empty;
 
         public string Phone { get; set; } = string.Empty;
 
         public string Address { get; set; } = string.Empty;
 
+        public string Role { get; set; } = "User";
+
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        // Navigation Properties
-        public ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
+        public ICollection<Cart> Carts { get; set; } = new List<Cart>();
 
         public ICollection<Order> Orders { get; set; } = new List<Order>();
     }

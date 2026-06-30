@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopLegoApi.Datas
 {
@@ -7,16 +8,22 @@ namespace ShopLegoApi.Datas
         [Key]
         public int Id { get; set; }
 
-        public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        [ForeignKey(nameof(User))]
+        public int UserId { get; set; }
+
+        public User User { get; set; } = null!;
+
+        [ForeignKey(nameof(OrderStatus))]
+        public int OrderStatusId { get; set; }
+
+        public OrderStatus OrderStatus { get; set; } = null!;
 
         public DateTime OrderDate { get; set; } = DateTime.UtcNow;
 
-        public decimal TotalPrice { get; set; }
+        public decimal TotalAmount { get; set; }
 
-        public string Status { get; set; } = "Pending";
+        public string ShippingAddress { get; set; } = string.Empty;
 
-        // Navigation: 1 Order có nhiều OrderDetail
         public ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
     }
 }

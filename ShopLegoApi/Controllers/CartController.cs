@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ShopLegoApi.Services;
 
@@ -15,15 +15,15 @@ namespace ShopLegoApi.Controllers
             _cartRepo = cartRepository;
         }
 
-        [HttpGet("customer/{customerId}")]
-        public async Task<IActionResult> GetCartByCustomerId(int customerId)
+        [HttpGet("customer/{userId}")] 
+        public async Task<IActionResult> GetCartByUserId(int userId)
         {
-            var result = await _cartRepo.GetCartByCustomerId(customerId);
+            var result = await _cartRepo.GetCartByUserId(userId);
             return Ok(result);
         }
 
         [HttpPost("add")]
-        public async Task<IActionResult> AddToCart([FromQuery] int customerId, [FromQuery] int productId)
+        public async Task<IActionResult> AddToCart([FromQuery] int customerId, [FromQuery] int productId) 
         {
             await _cartRepo.AddToCart(customerId, productId);
             return Ok(new { message = "Added to cart successfully" });
@@ -32,20 +32,21 @@ namespace ShopLegoApi.Controllers
         [HttpDelete("{cartItemId}")]
         public async Task<IActionResult> DeleteCartItem(int cartItemId)
         {
-            
             return Ok(await _cartRepo.DeleteCartItem(cartItemId));
         }
 
-        [HttpDelete("clear/{customerId}")]
-        public IActionResult ClearCart(int customerId)
+        [HttpDelete("clear/{userId}")]
+        public async Task<IActionResult> ClearCart(int userId)
         {
-            return StatusCode(501, new { message = "Not implemented yet" });
+            await _cartRepo.ClearCart(userId);
+            return Ok(new { message = "Cart cleared successfully" });
         }
 
         [HttpPut("update/{cartItemId}")]
-        public IActionResult UpdateQuantity(int cartItemId)
+        public async Task<IActionResult> UpdateQuantity(int cartItemId, [FromQuery] int quantity)
         {
-            return StatusCode(501, new { message = "Not implemented yet" });
+            await _cartRepo.UpdateQuantity(cartItemId, quantity);
+            return Ok(new { message = "Updated quantity successfully" });
         }
     }
 }
