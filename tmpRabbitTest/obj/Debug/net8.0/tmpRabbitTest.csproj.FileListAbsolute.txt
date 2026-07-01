@@ -1,0 +1,6 @@
+C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\tmpRabbitTest\obj\Debug\net8.0\tmpRabbitTest.csproj.AssemblyReference.cache
+C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\tmpRabbitTest\obj\Debug\net8.0\tmpRabbitTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\tmpRabbitTest\obj\Debug\net8.0\tmpRabbitTest.AssemblyInfoInputs.cache
+C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\tmpRabbitTest\obj\Debug\net8.0\tmpRabbitTest.AssemblyInfo.cs
+C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\tmpRabbitTest\obj\Debug\net8.0\tmpRabbitTest.csproj.CoreCompileInputs.cache
+C:\Users\QuangThang\OneDrive\Documents\TECAPRO\ShopLegoApi\tmpRabbitTest\obj\Debug\net8.0\tmpRabbitTest.sourcelink.json
