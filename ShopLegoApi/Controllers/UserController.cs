@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShopLegoApi.Model;
 using ShopLegoApi.Services;
+using System.Security.Claims;
 
 namespace ShopLegoApi.Controllers
 {
@@ -42,11 +43,13 @@ namespace ShopLegoApi.Controllers
             if (user == null)
                 return BadRequest(new { message = "Invalid email or password" });
 
-            var token = _jwtService.GenerateToken(user);
+            var accessToken = _jwtService.GenerateAccessToken(user);
+            var refreshToken = _jwtService.GenerateRefreshToken(user);
             return Ok(new
             {
                 message = "Login successful",
-                token,      
+                token = accessToken,
+                refreshToken,
                 user = new
                 {
                     id = user?.Id,
@@ -56,6 +59,38 @@ namespace ShopLegoApi.Controllers
                     address = user?.Address
                 }
             });
+        }
+
+        [HttpPost("refresh")]
+        public IActionResult Refresh([FromBody] RefreshTokenRequest request)
+        {
+            if (string.IsNullOrWhiteSpace(request.RefreshToken))
+                return BadRequest(new { message = "Refresh token is required" });
+
+            var principal = _jwtService.GetPrincipalFromExpiredToken(request.RefreshToken);
+            if (principal == null)
+                return Unauthorized(new { message = "Invalid refresh token" });
+
+            var userIdClaim = principal.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrWhiteSpace(userIdClaim) || !int.TryParse(userIdClaim, out var userId))
+                return Unauthorized(new { message = "Invalid refresh token" });
+
+            var user = _userRepo.GetById(userId).Result;
+            if (user == null)
+                return Unauthorized(new { message = "User not found" });
+
+            var userModel = new UserModel
+            {
+                Id = user.Id,
+                FullName = user.FullName,
+                Email = user.Email,
+                Role = user.Role,
+                Address = user.Address
+            };
+
+            var accessToken = _jwtService.GenerateAccessToken(userModel);
+            var refreshToken = _jwtService.GenerateRefreshToken(userModel);
+            return Ok(new { token = accessToken, refreshToken });
         }
     }
 }
