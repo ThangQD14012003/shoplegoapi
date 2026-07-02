@@ -10,7 +10,7 @@ using ShopLegoApi.Datas;
 
 namespace ShopLegoApi.Services
 {
-    public class EmailBackgroundService : BackgroundService //Consumer
+    public class EmailBackgroundService : BackgroundService //Consumer: nghe RabbitMQ và xử lý gửi email 
     {
         private readonly IServiceProvider _serviceProvider;
         private readonly IConfiguration _config;
@@ -28,7 +28,7 @@ namespace ShopLegoApi.Services
             _logger = logger;
         }
 
-        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken) // main thread 
         {
             try
             {
@@ -59,7 +59,7 @@ namespace ShopLegoApi.Services
                 await _channel.BasicQosAsync(prefetchSize: 0, prefetchCount: 1, global: false, cancellationToken: stoppingToken);
 
                 var consumer = new AsyncEventingBasicConsumer(_channel);
-                consumer.ReceivedAsync += async (sender, eventArgs) =>
+                consumer.ReceivedAsync += async (sender, eventArgs) => // nơi RabbitMq đẩy message vào 
                 {
                     try
                     {
@@ -97,7 +97,6 @@ namespace ShopLegoApi.Services
                 _logger.LogError(ex, "Failed to initialize RabbitMQ connection or channel.");
             }
 
-            // Keep the background service alive until cancelled
             await Task.Delay(Timeout.Infinite, stoppingToken);
         }
 
@@ -108,7 +107,7 @@ namespace ShopLegoApi.Services
             base.Dispose();
         }
 
-        private async Task ProcessMessageAsync(EmailQueueMessage message)
+        private async Task ProcessMessageAsync(EmailQueueMessage message) // business logic 
         {
             using var scope = _serviceProvider.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<LegoDataContext>();
@@ -130,6 +129,7 @@ namespace ShopLegoApi.Services
                 .FirstOrDefaultAsync(s => s.Key == "ManagerEmail");
             var accountantEmailSetting = await context.SystemSettings
                 .FirstOrDefaultAsync(s => s.Key == "AccountantEmail");
+            // => lấy email config 
 
             string managerEmail = managerEmailSetting?.Value ?? "manager@example.com";
             string accountantEmail = accountantEmailSetting?.Value ?? "accountant@example.com";
@@ -189,7 +189,7 @@ namespace ShopLegoApi.Services
                     };
                     mailMessage.To.Add(recipient.Email);
 
-                    await client.SendMailAsync(mailMessage);
+                    await client.SendMailAsync(mailMessage); // core nghiệp vụ, gửi message
                     await LogEmailAsync(context, order.Id, recipient.Email, subject, true);
                     logger.LogInformation("Email sent for Order {OrderId} to {Recipient}.", order.Id, recipient.Email);
                 }

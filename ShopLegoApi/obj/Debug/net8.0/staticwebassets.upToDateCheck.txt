@@ -1,8 +1,0 @@
-wwwroot\uploads\products\05f6a6d6-bd25-4ff2-ab58-f6c050bd2974.jpg
-wwwroot\uploads\products\0acff5fa-e80a-401a-86fe-cbecc6491dd7.jpg
-wwwroot\uploads\products\65f2da60-100c-4137-9057-1b285b40577c.jpg
-wwwroot\uploads\products\7ea2867a-aac7-4d46-8602-4025b6c94722.jpg
-wwwroot\uploads\products\8835d130-c3b6-48f0-a2a3-beaf3df36e73.jpg
-wwwroot\uploads\products\99cc28b2-da07-4b33-9f1a-75ab5e767fb1.jpg
-wwwroot\uploads\products\a64b8b07-ecd5-48b9-b672-6bf549028cbd.jpg
-wwwroot\uploads\products\c156d02e-9236-4b18-a101-4db54c15cb0d.jpg

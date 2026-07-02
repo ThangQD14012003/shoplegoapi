@@ -45,7 +45,7 @@ namespace ShopLegoApi.Services
                     autoDelete: false,
                     arguments: null);
 
-                var message = new EmailQueueMessage
+                var message = new EmailQueueMessage // tạo message
                 {
                     OrderId = orderId,
                     EnqueuedAt = DateTime.UtcNow
@@ -63,7 +63,7 @@ namespace ShopLegoApi.Services
                     routingKey: queueName,
                     mandatory: true,
                     basicProperties: properties,
-                    body: body);
+                    body: body); // publish vào queue
 
                 _logger.LogInformation(
                     "Published email queue message for Order {OrderId} to queue {QueueName}.",

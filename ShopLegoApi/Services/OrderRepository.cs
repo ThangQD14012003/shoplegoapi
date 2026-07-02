@@ -139,7 +139,7 @@ namespace ShopLegoApi.Services
                 {
                     UserId = userId,
                     OrderStatusId = 1,
-                    OrderDate = DateTime.UtcNow,
+                    OrderDate = DateTime.Now,
                     TotalAmount = totalAmount,
                     ShippingAddress = shippingAddress
                 };
@@ -271,7 +271,7 @@ namespace ShopLegoApi.Services
                 {
                     UserId = userId,
                     OrderStatusId = 1,
-                    OrderDate = DateTime.UtcNow,
+                    OrderDate = DateTime.Now,
                     TotalAmount = totalAmount,
                     ShippingAddress = shippingAddress
                 };
