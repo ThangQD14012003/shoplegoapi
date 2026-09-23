@@ -45,7 +45,7 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
 policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
 builder.Services.AddDbContext<LegoDataContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MyDB"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("MyDB"));
 });
 builder.Services.AddCors(option =>
     option.AddPolicy("MyCors", builder =>
