@@ -45,7 +45,7 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
 policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
 builder.Services.AddDbContext<LegoDataContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MyDB"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("MyDB"));
 });
 builder.Services.AddCors(option =>
     option.AddPolicy("MyCors", builder =>
@@ -60,6 +60,7 @@ builder.Services.AddScoped<ICartItemRepository, CartItemRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddHostedService<EmailBackgroundService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

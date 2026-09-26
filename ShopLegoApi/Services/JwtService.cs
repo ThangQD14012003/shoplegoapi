@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using ShopLegoApi.Model;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace ShopLegoApi.Services
@@ -16,7 +17,7 @@ namespace ShopLegoApi.Services
             _configuration = configuration;
         }
 
-        public string GenerateToken(UserModel user)
+        public string GenerateAccessToken(UserModel user) // Sinh Access Token.
         {
             var claims = new[]
             {
@@ -26,19 +27,55 @@ namespace ShopLegoApi.Services
                 new Claim(ClaimTypes.Name, user.FullName)
             };
 
-            var key = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            return GenerateToken(claims, TimeSpan.FromMinutes(Convert.ToDouble(_configuration["Jwt:ExpireMinutes"])));
+        }
 
-            var credentials = new SigningCredentials(
-                key,
-                SecurityAlgorithms.HmacSha256);
+        public string GenerateRefreshToken(UserModel user)
+        {
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim("token_type", "refresh")
+            };
+
+            return GenerateToken(claims, TimeSpan.FromDays(Convert.ToDouble(_configuration["Jwt:RefreshTokenExpireDays"])));
+        }
+
+        public ClaimsPrincipal? GetPrincipalFromExpiredToken(string token)
+        {
+            var tokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateAudience = true,
+                ValidateIssuer = true,
+                ValidateIssuerSigningKey = true,
+                ValidateLifetime = false,
+                ValidIssuer = _configuration["Jwt:Issuer"],
+                ValidAudience = _configuration["Jwt:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!))
+            };
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out var securityToken);
+
+            if (securityToken is not JwtSecurityToken jwtSecurityToken ||
+                !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return null;
+            }
+
+            return principal;
+        }
+
+        private string GenerateToken(IEnumerable<Claim> claims, TimeSpan expiry)
+        {
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!));
+            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(
-                    Convert.ToDouble(_configuration["Jwt:ExpireMinutes"])),
+                expires: DateTime.UtcNow.Add(expiry),
                 signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
