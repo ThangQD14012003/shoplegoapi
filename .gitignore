@@ -51,6 +51,7 @@ TestResults/
 # Publish
 ############################
 publish/
+.publish/
 
 ############################
 # NuGet

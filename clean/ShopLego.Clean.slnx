@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ShopLego.Api/ShopLego.Api.csproj" />
+    <Project Path="src/ShopLego.Application/ShopLego.Application.csproj" />
+    <Project Path="src/ShopLego.Domain/ShopLego.Domain.csproj" />
+    <Project Path="src/ShopLego.Infrastructure/ShopLego.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ShopLego.UnitTests/ShopLego.UnitTests.csproj" />
+  </Folder>
+</Solution>
