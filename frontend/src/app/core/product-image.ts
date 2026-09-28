@@ -1,0 +1,2 @@
+const images=['05f6a6d6-bd25-4ff2-ab58-f6c050bd2974.jpg','0acff5fa-e80a-401a-86fe-cbecc6491dd7.jpg','182f24a3-c06a-4833-9444-6053b0de0f15.jpg','65f2da60-100c-4137-9057-1b285b40577c.jpg','7ea2867a-aac7-4d46-8602-4025b6c94722.jpg','8835d130-c3b6-48f0-a2a3-beaf3df36e73.jpg','99cc28b2-da07-4b33-9f1a-75ab5e767fb1.jpg','a64b8b07-ecd5-48b9-b672-6bf549028cbd.jpg','a68aa460-975d-4709-ba67-ea943e03e989.jpg','c156d02e-9236-4b18-a101-4db54c15cb0d.jpg'];
+export const productImage=(id:number)=>`/products/${images[Math.abs(id)%images.length]}`;

@@ -1,0 +1,9 @@
+export interface Product{id:number;categoryId:number;name:string;description:string;price:number;stockQuantity:number;availableQuantity:number;imageUrl:string;createdAt:string;updatedAt:string}
+export interface Category{id:number;name:string;description:string}
+export interface CartItem{id:number;productId:number;quantity:number;productName:string;price:number;image:string}
+export interface OrderDetail{id:number;productId:number;productName:string;productImage:string;quantity:number;unitPrice:number;subTotal:number}
+export interface Order{id:number;userId:number;userFullName:string;userEmail:string;orderStatusId:number;orderStatusName:string;orderDate:string;totalAmount:number;shippingAddress:string;orderDetails:OrderDetail[]}
+export interface OrderStatus{id:number;name:string}
+export interface SystemSettings{managerEmail:string;accountantEmail:string}
+export interface User{id:number;fullName:string;email:string;role:string;address:string}
+export interface AuthResponse{token:string;refreshToken:string;user:User}
